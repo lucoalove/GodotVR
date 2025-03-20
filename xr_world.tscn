@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://5qik1e2j2git"]
+
+[ext_resource type="Script" uid="uid://h4akj3gbd0vf" path="res://xr_world.gd" id="1_4qqcy"]
+[ext_resource type="Texture2D" uid="uid://lfpxpnycxw34" path="res://debug.png" id="2_a7y4h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a7y4h"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vdbx"]
+albedo_texture = ExtResource("2_a7y4h")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xeah2"]
+size = Vector2(5, 5)
+orientation = 1
+
+[node name="XRWorld" type="Node3D"]
+script = ExtResource("1_4qqcy")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
+mesh = SubResource("BoxMesh_a7y4h")
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+mesh = SubResource("BoxMesh_a7y4h")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_0vdbx")
+mesh = SubResource("QuadMesh_xeah2")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.754091, 0.609759, -0.24401, 0, 0.37153, 0.928421, 0.65677, -0.700114, 0.280167, 0, 0, 0)
