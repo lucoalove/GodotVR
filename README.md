@@ -13,4 +13,4 @@ First things to implement:
 - [Multiplayer](https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html) (serialization ;-;)
 - Modding support (custom worlds/models)
   - Mods must be structured `res://mods/<YOUR MOD NAME>/<CONTENT>` and saved as `<YOUR MOD NAME>.pck`.
-  - Within a (Desktop only?) mod-manager menu, a [FileDialogue](https://docs.godotengine.org/en/stable/classes/class_filedialog.html) is used to select your pack file, which is then loaded as a [pack](https://docs.godotengine.org/en/3.2/getting_started/workflow/export/exporting_pcks.html). Assuming it's a valid pack, the pack file is saved to an internal directory so you don't have to reselect it next time.
+  - Within a (Desktop only?) mod-manager menu, a [FileDialogue](https://docs.godotengine.org/en/stable/classes/class_filedialog.html) is used to select your pack file, which is then saved to an internal directory (so you don't have to reselect the mod; it will automatically appear in the mod-manager menu). The pack file's contents are loaded as a [pack](https://docs.godotengine.org/en/3.2/getting_started/workflow/export/exporting_pcks.html).
