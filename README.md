@@ -1,6 +1,6 @@
 # GodotVR
 
-Experimental VR platform in Godot.
+Experimental, lightweight VR social platform in Godot.
 
 First things to implement:
 - tracking
